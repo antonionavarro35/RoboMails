@@ -3493,9 +3493,9 @@
     "restore": {
       "projectUniqueName": "Mails",
       "projectName": "Mails",
-      "projectPath": "C:\\Users\\A.NAVARRO\\OneDrive - o2f-it\\UiPath\\Mails\\.local",
+      "projectPath": "C:\\Users\\A.NAVARRO\\OneDrive - o2f-it\\UiPath\\RoboMails\\.local",
       "packagesPath": "C:\\Users\\A.NAVARRO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\A.NAVARRO\\OneDrive - o2f-it\\UiPath\\Mails\\.local"
+      "outputPath": "C:\\Users\\A.NAVARRO\\OneDrive - o2f-it\\UiPath\\RoboMails\\.local"
     },
     "frameworks": {
       "net461": {
