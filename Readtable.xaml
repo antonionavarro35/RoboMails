@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Readtable" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="921,3201" sap2010:WorkflowViewState.IdRef="Readtable_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Readtable" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1314,3545" sap2010:WorkflowViewState.IdRef="Readtable_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
       <x:String>System.Activities</x:String>
@@ -61,9 +61,12 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Readtable" sap:VirtualizedContainerService.HintSize="468,2996" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Readtable" sap:VirtualizedContainerService.HintSize="468,3380" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="data" />
     </Sequence.Variables>
@@ -72,7 +75,38 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[data]" Delimitator="Comma" DisplayName="Read CSV" FilePath="C:\Users\A.NAVARRO\OneDrive - o2f-it\UiPath\Mails\Scripts\data\mails.csv" sap:VirtualizedContainerService.HintSize="426,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[data]" Delimitator="Comma" DisplayName="Read CSV" FilePath="Scripts\data\mails.csv" sap:VirtualizedContainerService.HintSize="426,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+    <Sequence DisplayName="OpenIMI" sap:VirtualizedContainerService.HintSize="426,344" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_9" Key="r" KeyModifiers="Win">
+        <ui:SendHotkey.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3ca59d7d-ed93-43f1-b244-efb2a1305bd5">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:SendHotkey.Target>
+      </ui:SendHotkey>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayMS="500" DisplayName="Type Into" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="C:\Users\A.NAVARRO\OneDrive - o2f-it\UiPath\RoboMails\Scripts\texto.docx[k(enter)]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="6540618c-c089-4b16-ad0a-cd66f0ef808b">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+    </Sequence>
     <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[data]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="426,2712" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
@@ -97,7 +131,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e27f15f-7d14-4142-8242-d36066d7b2fe" InformativeScreenshot="7cf66275d9af39830883dae116ec84e1" Selector="&lt;wnd app='winword.exe' cls='OpusApp' title='Documento1 - Word' /&gt;&lt;uia automationid='Body' name='Contenido de la página 1' role='edit' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e27f15f-7d14-4142-8242-d36066d7b2fe" InformativeScreenshot="5f16b430c15fbadf126f8845eab45538" Selector="&lt;wnd app='winword.exe' cls='OpusApp' title='texto.docx - Word' /&gt;&lt;uia automationid='UIA_AutomationId_Word_Page_1' name='Página 1' role='página' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -143,7 +177,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5b2d8e79-f9cc-4e90-8af8-251607b50722" InformativeScreenshot="691eb454b2aa63915d78dc1bb50f0752" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='*' /&gt;&lt;uia cls='MsoCommandBar' idx='1' /&gt;&lt;uia cls='NetUIPanViewer' name='Pestaña de la cinta de opciones' /&gt;&lt;uia cls='NetUIRibbonTab' name='Inicio' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5b2d8e79-f9cc-4e90-8af8-251607b50722" InformativeScreenshot="62b2d63f11cf8223c215b7ec4ad76c4c" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Inbox - antonio.navarro@amaris.com - Outlook' /&gt;&lt;uia cls='MsoCommandBar' idx='1' /&gt;&lt;uia cls='NetUIPanViewer' name='Pestaña de la cinta de opciones' /&gt;&lt;uia cls='NetUIRibbonTab' name='Inicio' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -165,7 +199,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5b2d8e79-f9cc-4e90-8af8-251607b50722" InformativeScreenshot="f6e960cf942364f9a6e8577bbcf8689b" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='*' /&gt;&lt;uia cls='MsoCommandBar' idx='1' /&gt;&lt;uia cls='NetUIChunk' name='Nuevo' /&gt;&lt;uia cls='NetUIRibbonButton' name='Nuevo correo electrónico' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5b2d8e79-f9cc-4e90-8af8-251607b50722" InformativeScreenshot="f819e9d5fcc1b0865d47e9f27bbc54e8" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Inbox - antonio.navarro@amaris.com - Outlook' /&gt;&lt;uia cls='MsoCommandBar' idx='1' /&gt;&lt;uia cls='NetUIChunk' name='Nuevo' /&gt;&lt;uia cls='NetUIRibbonButton' name='Nuevo correo electrónico' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -247,7 +281,7 @@
                 </ui:Target>
               </ui:SendHotkey.Target>
             </ui:SendHotkey>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="Retraso en informe de innovación[k(enter)]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="Retraso en informe de innovación de junio[k(enter)]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="f4f199b2-2fb4-4a81-a057-1fb8e0cdcf46">
                   <ui:Target.TimeoutMS>
@@ -283,7 +317,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[&quot;Me pongo en contacto contigo porque tu informe de innovacion del mes --&gt;  &quot;+row(&quot;mes&quot;).ToString+&quot; aún está en estado --&gt; &quot;+row(&quot;estado&quot;).ToString+&quot;[k(enter)][k(enter)]&quot;]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[&quot;Me pongo en contacto contigo porque tu informe de innovación del mes --&gt;  &quot;+row(&quot;mes/año&quot;).ToString+&quot; aún está en estado --&gt; &quot;+row(&quot;estado&quot;).ToString+&quot;[k(enter)][k(enter)]&quot;]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="6b499a49-4370-4809-a2df-73c2dd6d0692">
                   <ui:Target.TimeoutMS>
@@ -319,7 +353,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="096bbb0b-b383-4cb5-add5-7427c1273906" InformativeScreenshot="f69d0640162caaa5842dc2f47f686070" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Retraso en informe de innovación - Mensaje (HTML) ' idx='*' /&gt;&lt;wnd ctrlid='4256' title='&amp;amp;Enviar' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="096bbb0b-b383-4cb5-add5-7427c1273906" InformativeScreenshot="ba10e8e18fb8009b0a13b7009a565c95" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Retraso en informe de innovación de junio - Mensaje (HTML) ' /&gt;&lt;wnd aaname='Áreas del formulario' cls='AfxWndW' /&gt;&lt;wnd ctrlid='4256' title='&amp;amp;Enviar' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
