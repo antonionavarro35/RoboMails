@@ -51,4 +51,4 @@ def main(month, year):
 
 if __name__=="__main__":
 
-    main(2, 2021)
+    main(6, 2021)
